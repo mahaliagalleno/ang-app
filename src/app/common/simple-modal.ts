@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'simple-modal',
     templateUrl: 'simple-modal.html',
     styles: [`
-            .modal-body { height: 350px; }
+            .modal-body { height: 300px; }
         `]
 })
 

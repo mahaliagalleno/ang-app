@@ -3,3 +3,7 @@
 h1, h2, h3, h4{
     color: #75766f;
 }
+
+.modal-backdrop{
+    z-index: 0;
+}
