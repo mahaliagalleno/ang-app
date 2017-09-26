@@ -1,0 +1,37 @@
+<div class="col-md-5 col-sm-6">
+    <form novalidate [formGroup]="AddProductForm" autocomplete="off">
+        <div class="form-group" [ngClass]="{'has-danger': AddProductForm.controls.name.invalid && AddProductForm.controls.name.touched}">
+            <label for="ProductName" class="col-form-label col-form-label-sm">Product Name</label>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.name.invalid && AddProductForm.controls.name.touched"><em>Required</em></div>
+            <input type="text" class="form-control form-control-sm form-control-danger" formControlName="name"  id="name" />
+        </div>
+        <div class="form-group" [ngClass]="{'has-danger': AddProductForm.controls.categoryId.invalid && AddProductForm.controls.categoryId.touched}">
+            <label for="categoryId" class="col-form-label col-form-label-sm">Category</label>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.categoryId.invalid && AddProductForm.controls.categoryId.touched"><em>Required</em></div>
+            <select formControlName="categoryId" id="categoryId" class="form-control form-control-sm form-control-danger">
+              <option value="">Choose One</option>
+              <option value="1">Category 1</option> 
+            </select>
+          </div>
+        <div class="form-group" [ngClass]="{'has-danger': AddProductForm.controls.price.invalid && AddProductForm.controls.price.touched}">
+            <label for="price" class="col-form-label col-form-label-sm">Price</label>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.price.invalid && AddProductForm.controls.price.touched"><em>Required</em></div>
+            <input type="text" class="form-control form-control-sm form-control-danger" formControlName="price"  id="price" />
+        </div>
+        <div class="form-group" [ngClass]="{'has-danger': AddProductForm.controls.stocks.invalid && AddProductForm.controls.stocks.touched}">
+            <label for="stocks" class="col-form-label col-form-label-sm">Stocks</label>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.stocks.invalid && AddProductForm.controls.stocks.touched"><em>Required</em></div>
+            <input type="text" class="form-control form-control-sm form-control-danger" formControlName="stocks"  id="stocks" />
+        </div>
+        <div class="form-group" [ngClass]="{'has-danger': AddProductForm.controls.imageUrl.invalid && AddProductForm.controls.imageUrl.touched}">
+            <label for="imageUrl" class="col-form-label col-form-label-sm">Image Url</label>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.imageUrl?.invalid && AddProductForm.controls.imageUrl?.touched  && AddProductForm.controls.imageUrl?.errors.required"><em>Required</em></div>
+            <div class="form-control-feedback" *ngIf="AddProductForm.controls.imageUrl?.invalid && AddProductForm.controls.imageUrl?.touched && AddProductForm.controls.imageUrl?.errors.pattern"><em>Must be png or jpg</em></div>
+            <input pattern=".*\/.*.(png|jpg)" type="text" class="form-control form-control-sm form-control-danger  " formControlName="imageUrl"  id="imageUrl" />
+            <img *ngIf="AddProductForm.controls.imageUrl.valid" [src]="AddProductForm.controls.imageUrl.value" width="100px"/>
+        </div>
+
+        <button class='btn btn-primary' type="submit" [disabled]="AddProductForm.invalid" >Submit</button>
+        <button class='btn btn-default' type="button" >Cancel</button>
+      </form>    
+</div>

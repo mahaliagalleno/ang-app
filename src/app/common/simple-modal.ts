@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'simple-modal',
+    selector: 'app-simple-modal',
     templateUrl: 'simple-modal.html',
     styles: [`
             .modal-body { height: 350px; }
@@ -10,6 +10,4 @@ import { Component, Input } from '@angular/core';
 
 export class SimpleModalComponent {
     @Input() title: string;
-
-     
 }
