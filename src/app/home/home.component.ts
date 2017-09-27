@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductServices } from "../shared/product.services";
-import { IProduct } from "../shared/product.model";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ProductServices } from '../shared/product.services';
+import { IProduct } from '../shared/product.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,29 +10,26 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 
 export class HomeComponent implements OnInit {
-   pageTitle: string="Product List";
-   products: IProduct[]; 
+   pageTitle: string = 'Product List';
+   products: IProduct[];
    filterBy: string = '';
    addActive: boolean = false;
 
   constructor(private prodServices: ProductServices, private activatedRoute: ActivatedRoute, private route: Router) {}
-  
   ngOnInit() {
     this.products = this.activatedRoute.snapshot.data['products'];
   }
 
-  cancelAddProduct(){
+  cancelAddProduct() {
     this.addActive = !this.addActive;
   }
 
-  submitAddProduct(){
-    
+  submitAddProduct() {
     this.prodServices.getProducts().subscribe(response => {
       this.products = response;
     });
 
     this.addActive = !this.addActive;
-
   }
 
  }

@@ -4,21 +4,18 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
-import { AuthServices } from "./shared/auth.services";
+import { AuthServices } from './shared/auth.services';
 import { ProductComponent } from './product/product.component';
-import { JQ_TOKEN } from './common/jquery.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductServices } from "./shared/product.services";
+import { ProductServices } from './shared/product.services';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { appRoutes } from './route';
-import { ProductListResolver } from "./shared/product-list-resolver";
-import { SimpleModalComponent } from "./common/simple-modal";
-import { ModalTriggerDirective } from "./common/modal.trigger.directive";
-
-declare let jQuery : Object;
-
+import { ProductListResolver } from './shared/product-list-resolver';
+import { DialogComponent } from './common/dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AdminProductComponent } from './admin-product/admin-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,21 +24,21 @@ declare let jQuery : Object;
     ProductComponent,
     AddProductComponent,
     ProductDetailsComponent,
-    SimpleModalComponent,
-    ModalTriggerDirective
+    DialogComponent,
+    AdminProductComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthServices,
     ProductServices,
-    ProductListResolver,
-    {provide: JQ_TOKEN, useValue: jQuery}
+    ProductListResolver
   ],
   bootstrap: [AppComponent]
 })
